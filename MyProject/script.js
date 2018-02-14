@@ -1,17 +1,19 @@
 let y = 20;
-let x = 20;
 
 
 function setup() {
-  createCanvas(500, 700);
-  background(0);
-  stroke(255);
-  while(x < windowHeight){ //AND x < windowHeight){
-    ellipse(windowWidth/2 ,windowHeight/2,x);
-    x += 5;
-  }
+  createCanvas(windowWidth, windowHeight);
+  background(255);
+  stroke(0);
+
 }
 
 function draw() {
-    rect(mouseX,mouseY, y,y);
+  rect(mouseX, mouseY, y, y);
 }
+
+function changeSize() {
+
+}
+
+function makeBackground
