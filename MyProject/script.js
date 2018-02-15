@@ -5,6 +5,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
   stroke(0);
+  makeBackground();
 
 }
 
@@ -16,4 +17,17 @@ function changeSize() {
 
 }
 
-function makeBackground
+function makeBackground(){
+  let circleWidth = 1;
+
+  while( circleWidth <windowWidth){
+    ellipse(circleWidth,circleWidth,circleWidth,circleWidth);
+    ellipse(windowWidth/circleWidth,windowWidth/circleWidth,circleWidth,circleWidth);
+    circleWidth += 1;
+
+  }
+
+
+
+
+}
