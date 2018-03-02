@@ -2,6 +2,7 @@ let y = 20;
 let shapeKind = 1;
 
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(255);
@@ -60,17 +61,11 @@ function keyPressed(){
 
 
 
-
 function makeBackground(){
   let circleWidth = windowWidth*2;
 
   while( circleWidth >0){
     ellipse(windowWidth/2,windowHeight/2,circleWidth,circleWidth);
     circleWidth -= 1;
-
   }
-
-
-
-
 }
