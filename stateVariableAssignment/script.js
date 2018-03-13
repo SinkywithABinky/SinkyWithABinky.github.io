@@ -3,7 +3,7 @@
 //setting variables
 let gameState = 1;
 let playerturn = 1;
-
+let countryInfoClicked = 0;
 
 
 //setting objects
@@ -173,13 +173,20 @@ function makeAlaska() {
 
 function isClicked(x1, y1, x2, y2, countryName, gold, resources){
   if (x1 < mouseX && mouseX < x2 && y1 < mouseY && mouseY < y2 && mouseIsPressed) {
-    fill(0);
-    rect(windowWidth/2 - 50,windowHeight/2 -50,100,100);
-    fill(0);
-    textSize(14);
-    text("This is " + countryName ,windowWidth/2 - 50,windowHeight/2 -50 );
-    text("It has this many resources:" + resources ,windowWidth/2 - 50,windowHeight/2  );
-    text("It has this much gold:" + gold ,windowWidth/2 - 50,windowHeight/2 + 50 );
+    countryInfoClicked = 1;
+    while (countryInfoClicked === 1 ){
+      fill(0);
+      rect(windowWidth/2 - 50,windowHeight/2 -50,100,100);
+      fill(0);
+      textSize(14);
+      text("This is " + countryName ,windowWidth/2 - 50,windowHeight/2 -50 );
+      text("It has this many resources:" + resources ,windowWidth/2 - 50,windowHeight/2  );
+      text("It has this much gold:" + gold ,windowWidth/2 - 50,windowHeight/2 + 50 );
+      text("click again to remove this page", windowWidth/2 - 60,windowHeight/2 + 60 );
+      if (x1 < mouseX && mouseX < x2 && y1 < mouseY && mouseY < y2 && mouseIsPressed) {
+        countryInfoClicked = 0;
+      }
+    }
   }
 }
 
