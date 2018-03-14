@@ -13,4 +13,5 @@ function draw(){
     line(0,50,0,40);
     rotate(1/30*PI);
   }
+  pop();
 }

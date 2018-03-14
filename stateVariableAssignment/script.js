@@ -4,19 +4,11 @@
 let gameState = 1;
 let playerturn = 1;
 let countryInfoClicked = 0;
+let blockWidth;
+let blockHeight;
+let alaska;
 
 
-//setting objects
-let alaska = {
-  Name: "Alaska",
-  xStart: 0,
-  xFin: 50,
-  yStart: 0,
-  yFin: 50,
-  ownedBy: "noOne",
-  gold: 2,
-  resources: 3,
-};
 
 
 
@@ -28,7 +20,39 @@ let alaska = {
 //setup
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  blockWidth = windowWidth/54;
+  blockHeight = windowHeight/41;
+
+  //setting objects
+  alaska = {
+    Name: "Alaska",
+    xStart: blockWidth*0,
+    xFin: blockWidth*2,
+    yStart:  blockHeight*0,
+    yFin: blockHeight*2,
+    ownedBy: "noOne",
+    gold: 2,
+    resources: 3,
+  };
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //just calls other functions
@@ -170,7 +194,7 @@ function makeAlaska() {
 
 
 
-
+//countries call on this to see if they are being clicked
 function isClicked(x1, y1, x2, y2, countryName, gold, resources){
   if (x1 < mouseX && mouseX < x2 && y1 < mouseY && mouseY < y2 && mouseIsPressed) {
     countryInfoClicked = 1;
