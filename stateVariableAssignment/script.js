@@ -33,8 +33,8 @@ function setup() {
     ownedBy: "noOne",
     gold: 2,
     resources: 3,
+    isClicked: 0,
   };
-
 }
 
 
@@ -184,8 +184,13 @@ function makeAlaska() {
     fill(255, 0, 0);
     rect(alaska.xStart, alaska.yStart, alaska.xFin, alaska.yFin);
   }
-  isClicked(alaska.xStart, alaska.yStart, alaska.xFin, alaska.yFin,alaska.Name, alaska.gold,alaska.resources);
-
+  if (clickOnCountry(alaska.xStart, alaska.yStart, alaska.xFin, alaska.yFin) === true){
+    alaska.isClicked = 1;
+  }
+  isClicked(alaska.xStart, alaska.yStart, alaska.xFin, alaska.yFin,alaska.Name, alaska.gold,alaska.resources,alaska.isClicked);
+  if (mouseX> windowWidth/2 -50 && mouseX< windowWidth/2 +50, mouseY> windowHeight/2 -50 && mouseY< windowHeight/2 +50 && mouseIsPressed){
+    alaska.isClicked = 0;
+  }
 }
 
 
@@ -195,25 +200,25 @@ function makeAlaska() {
 
 
 //countries call on this to see if they are being clicked
-function isClicked(x1, y1, x2, y2, countryName, gold, resources){
-  if (x1 < mouseX && mouseX < x2 && y1 < mouseY && mouseY < y2 && mouseIsPressed) {
-    countryInfoClicked = 1;
-    while (countryInfoClicked === 1 ){
-      fill(0);
-      rect(windowWidth/2 - 50,windowHeight/2 -50,100,100);
-      fill(0);
-      textSize(14);
-      text("This is " + countryName ,windowWidth/2 - 50,windowHeight/2 -50 );
-      text("It has this many resources:" + resources ,windowWidth/2 - 50,windowHeight/2  );
-      text("It has this much gold:" + gold ,windowWidth/2 - 50,windowHeight/2 + 50 );
-      text("click again to remove this page", windowWidth/2 - 60,windowHeight/2 + 60 );
-      if (x1 < mouseX && mouseX < x2 && y1 < mouseY && mouseY < y2 && mouseIsPressed) {
-        countryInfoClicked = 0;
-      }
-    }
+function isClicked(x1, y1, x2, y2, countryName, gold, resources, isClicked){
+  if ( isClicked === 1){
+    fill(0);
+    rect(windowWidth/2 - 50,windowHeight/2 -50,100,100);
+    fill(255);
+    textSize(14);
+    text("This is " + countryName ,windowWidth/2 - 50,windowHeight/2 -50 );
+    text("It has this many resources:" + resources ,windowWidth/2 - 50,windowHeight/2  );
+    text("It has this much gold:" + gold ,windowWidth/2 - 50,windowHeight/2 + 50 );
+    text("click again to remove this page", windowWidth/2 - 60,windowHeight/2 + 60 );
   }
 }
 
+
+function clickOnCountry(x1, y1, x2, y2){
+  if (x1<mouseX && mouseX<x2 && y1<mouseY && mouseY<y2 && mouseIsPressed){
+    return true;
+  }
+}
 
 
 
