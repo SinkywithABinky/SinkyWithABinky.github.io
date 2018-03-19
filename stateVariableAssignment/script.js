@@ -1,3 +1,11 @@
+//Amar Minhas State variable assignment
+//I beleive that working with objects (Alaska) should
+//qualify me for getting those sweet "Wow ME!" marks
+
+
+
+
+
 //setting variables
 let gameState = 1;
 let playerturn = 1;
