@@ -1,4 +1,5 @@
-//Amar Minhas 2d arrays assignment assignment
+//Amar Minhas 2d arrays assignment
+//this project is a continuation of my previous projects
 
 
 
@@ -39,7 +40,7 @@ function setup() {
     xStart: 0, //first x coOrd
     xFin: 2, //last x coOrd
     yStart: 0, //first y coOrd
-    yFin:  2, //last y coOrd
+    yFin: 2, //last y coOrd
     ownedBy: "noOne", // who it is owned by
     gold: 2, //a game mechanic
     resources: 3, //a game mechanic
@@ -169,18 +170,19 @@ function makeAlaska() {
   for (let x = alaska.xStart; x < alaska.xFin; x++) {
     for (let y = alaska.yStart; y < alaska.yFin; y++) {
       //determines the colour based on who owns it
+      //sets the colour on the grid
       if (countryMousedOver(alaska.xStart, alaska.yStart, alaska.xFin, alaska.yFin) === true) {
         map[x][y] = 1;
       } else if (alaska.ownedBy === "noOne") {
         map[x][y] = 6;
       } else if (alaska.ownedBy === "portugal") {
-        map[x][y] = 5
+        map[x][y] = 5;
       } else if (alaska.ownedBy === "france") {
-        map[x][y] = 4
+        map[x][y] = 4;
       } else if (alaska.ownedBy === "spain") {
-        map[x][y] = 3
+        map[x][y] = 3;
       } else if (alaska.ownedBy === "england") {
-        map[x][y] = 2
+        map[x][y] = 2;
       }
 
       //if this is true, a pop up of the countries info appears
@@ -201,7 +203,7 @@ function makeAlaska() {
 
 
 
-  //countries call on this to see if they are being clicked
+//countries call on this to see if they are being clicked
 function isClicked(x1, y1, x2, y2, countryName, gold, resources, isClicked, ownedBy) {
   if (isClicked === 1) {
     fill(255);
@@ -216,23 +218,23 @@ function isClicked(x1, y1, x2, y2, countryName, gold, resources, isClicked, owne
   }
 }
 
-  //input coordinates and it tells you if the mouse is clicking inside of them
+//input coordinates and it tells you if the mouse is clicking inside of them
 function clickOnCountry(x1, y1, x2, y2) {
-  return (x1*blockWidth < mouseX && mouseX < x2 *blockWidth && y1*blockHeight < mouseY && mouseY < y2*blockHeight && mouseIsPressed);
+  return (x1 * blockWidth < mouseX && mouseX < x2 * blockWidth && y1 * blockHeight < mouseY && mouseY < y2 * blockHeight && mouseIsPressed);
 }
 
 
 
 
-  //just checks if you moused over a thing
+//just checks if you moused over a thing
 function countryMousedOver(x1, y1, x2, y2) {
-  if (x1 * blockWidth < mouseX && mouseX < x2  * blockWidth && y1* blockHeight < mouseY && mouseY < y2* blockHeight) {
+  if (x1 * blockWidth < mouseX && mouseX < x2 * blockWidth && y1 * blockHeight < mouseY && mouseY < y2 * blockHeight) {
     return true;
   }
 }
 
 
-  //creates an empty grid that will be used as the map
+//creates an empty grid that will be used as the map
 function createGrid(columns, rows) {
   let randomGrid = [];
   for (let x = 0; x < columns; x++) {
@@ -244,8 +246,8 @@ function createGrid(columns, rows) {
   return randomGrid;
 }
 
-  //actually displays the map
-  //colour list appears as follows: 0 = ocean, 1 = hovered over, 2 = england, 3 = spain, 4 = france, 5 =portugal, 6 = uncolonized
+//actually displays the map
+//colour list appears as follows: 0 = ocean, 1 = hovered over, 2 = england, 3 = spain, 4 = france, 5 =portugal, 6 = uncolonized
 function displayGrid() {
   for (let x = 0; x < columns; x++) {
     for (let y = 0; y < rows; y++) {
@@ -261,11 +263,11 @@ function displayGrid() {
         fill(0, 255, 0);
       } else if (map[x][y] === 6) {
         fill(255);
-      }
-      else{
+      } else {
         fill(0, 0, 255);
       }
-    rect(x * blockWidth, y * blockHeight, blockWidth, blockHeight);
+      //actually makes the grid
+      rect(x * blockWidth, y * blockHeight, blockWidth, blockHeight);
     }
   }
 }
